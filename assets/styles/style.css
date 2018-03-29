@@ -1,0 +1,12 @@
+body {
+  background-color: #04AEE2;
+}
+.jumbotron {
+  background-color: #D9DEE1;
+}
+.panel-primary > .panel-heading {
+  background-color: #EB4039;
+}
+#add-train-btn {
+  background-color: #EB4039;
+}
