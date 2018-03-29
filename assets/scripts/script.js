@@ -21,7 +21,9 @@ $("#add-train-btn").on("click", function(event) {
 //grab user input
 let trainName = $('#train-name-input').val().trim()
 let destination = $('#destination-input').val().trim()
-let firstTrainTime = $('#train-time-input').val().trim()
+//set back a year to make sure train time is behind current time, set to military time, format to unix timestamp
+let firstTrainTime = moment($('#train-time-input').val().trim(), "HH:mm").format();
+console.log(firstTrainTime);
 let frequency = $('#frequency-input').val().trim()
 
 // create local 'temp' object for holding employee data
@@ -67,19 +69,25 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   // console.log(firstTrainTime);
   // console.log(frequency);
 
-  //change the employee time
-  // let trainTimePretty = moment.unix(firstTrainTime).format("HH:mm");
-  // console.log(trainTimePretty);
+ //convert first time back a year so it is always before current time
+ let firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
+ 
 
-  //current time
-  var currentTime = moment();
-  console.log("Current Time: " + moment(currentTime).format("HH:mm"));
+ //current time
+ let currentTime = moment();
 
-  //calculate Next Arrival
+ //difference between current time and first time (in minutes);
+ let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+ console.log(`diff in time: ${diffTime}`);
+
+//time apart (remainder)
+  let timeRemaining = diffTime % frequency
+  console.log(`time remaining: ${timeRemaining}`);
   
 
   //Calculate Minutes Away
-  // let minutesAway =
+  let minutesAway = frequency - timeRemaining;
+
   //Add each train's data into the table
   // $('#train-table > tbody').append(`<tr><td> ${trainName} </td><td> ${destination} </td><td>
   // ${trainTimePretty} </td><td> ${nextArrival} </td><td> ${minutesAway} + </td></tr>`);
