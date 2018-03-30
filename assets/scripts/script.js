@@ -87,10 +87,23 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   //Calculate Minutes Away
   let minutesAway = frequency - timeRemaining;
+  console.log(`train is ${minutesAway} minutes away`)
 
-  //Add each train's data into the table
-  // $('#train-table > tbody').append(`<tr><td> ${trainName} </td><td> ${destination} </td><td>
-  // ${trainTimePretty} </td><td> ${nextArrival} </td><td> ${minutesAway} + </td></tr>`);
+  //Next train arrival
+  var nextArrival = moment().add(minutesAway, "minutes");
+  var nextArrivalFormat = moment(nextArrival).format("HH:mm a")
+  console.log(`next train arrival is at ${nextArrivalFormat}`);
+
+  //Append each train's data into the table
+  $('#train-table > tbody').append(`<tr><td> ${trainName} </td><td> ${destination} </td><td>
+  ${frequency} </td><td> ${nextArrivalFormat} </td><td> ${minutesAway} </td></tr>`);
+
+
+  //remove train data from database and from page
+  $('#clear-train').click(function() {
+    database.ref().remove();
+    $('#train-table > tbody').empty();
+  });
 
 });
 
