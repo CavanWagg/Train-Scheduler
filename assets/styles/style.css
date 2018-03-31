@@ -3,7 +3,7 @@
   src: url('fonts/toy-train.ttf') format('truetype');
 }
 body {
-  font-size: 90%;
+  font-size: 100%;
   background-color: #04AEE2;
 }
 .jumbotron {
