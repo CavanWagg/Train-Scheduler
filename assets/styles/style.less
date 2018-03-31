@@ -3,21 +3,43 @@
 @primary-color: #04AEE2;
 @secondary-color:#EB4039;
 @train-yellow: #FDD200;
-@train-black: #393438;
+@train-black: #333;
 @train-gray: #D9DEE1;
 
+@font-face {
+  font-family: 'toy-train';
+  src: url('fonts/toy-train.ttf') format('truetype');
+}
+
 body {
+  font-size: 90%;
   background-color: @primary-color;
 }
 .jumbotron {
-  background-color: @train-black;
+  background-color: @train-gray;
+  color: @train-black;
+}
+.jumbotron h1 {
+  font-family: 'toy-train';
+  
+  
+
 }
 
 .panel-primary > .panel-heading {
   background-color: @secondary-color;
+  border: solid 1px @train-yellow;
 }
 
+
+#clear-train,
 #add-train-btn {
   background-color: @secondary-color;
+  border: solid 1px @train-yellow;
+}
 
+.panel,
+.panel-primary,
+{
+  border: solid 1px @train-yellow;
 }

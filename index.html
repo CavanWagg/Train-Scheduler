@@ -3,10 +3,12 @@
 <html lang="en-us">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train time</title>
-
+    <!-- Normalize -->
+    <link rel="stylesheet" href="assets/styles/normalize.css">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -23,40 +25,44 @@
 
 </head>
 
-<body>
+<body class="override">
 
     <!-- Employee Tracker -->
-    <div class="container">
+    <div class="container-fluid">
 
         <!-- Jumbotron -->
         <div class="jumbotron">
-            <h1 class="text-center">Train time</h1>
-            <h3 class="text-center">All Aboard!</h3>
+            <h1 class="text-center">(Train-time)</h1>
+            <h4 class="text-center">All Aboard!</h3>
         </div>
+
 
         <div class="row">
 
-            <div class="col-lg-12">
+            <div class="col-xs-12 col-lg-12">
 
                 <!-- Current Employees-->
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
+                    <div class="panel-heading panel--">
                         <h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
                     </div>
                     <div class="panel-body">
-                        <table class="table-responsive table-hover" id='train-table'>
-                            <thead>
-                                <tr>
-                                    <th>Train Name</th>
-                                    <th>Destination</th>
-                                    <th>Frequency (min)</th>
-                                    <th>Next Arrival</th>
-                                    <th>Minutes Away</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive" style="overflow-x:auto">
+                            <table class="table table-hover" id='train-table'>
+                                <thead>
+                                    <tr>
+                                        <th>Train Name</th>
+                                        <th>Destination</th>
+                                        <th>Frequency (min)</th>
+                                        <th>Next Arrival</th>
+                                        <th>Minutes Away</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+
                         <button class="btn btn-primary" id="clear-train">Clear</button>
                     </div>
                 </div>
