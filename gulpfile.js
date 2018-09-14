@@ -6,6 +6,7 @@ const htmlbeautify = require('gulp-html-beautify');
 const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const bs = require('browser-sync').create(); // create a browser sync instance.
+const eslint = require('gulp-eslint');
 
 // paths
 const htmlSources = './*.html';
@@ -35,9 +36,17 @@ gulp.task('htmlbeautify', function() {
     .pipe(gulp.dest('./'));
 });
 
+gulp.task('lint', function () {
+  return gulp.src(['js/**/*.js'])
+  .pipe(eslint())
+  .pipe(eslint.format())
+  .pipe(eslint.failOnError());
+});
+
 gulp.task('watch', function() {
   gulp.watch(cssSources, ['less']).on('change', bs.reload);
   gulp.watch(htmlSources, ['htmlbeautify']).on('change', bs.reload);
+  gulp.watch('js/**/*.js', ['lint']);
 });
 
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['browser-sync', 'lint', 'watch']);

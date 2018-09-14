@@ -37,11 +37,6 @@ const newTrain = {
 //upload train data to the database 
 database.ref().push(newTrain);
 
-//log to console 
-// console.log(newTrain.name);
-// console.log(newTrain.place);
-// console.log(newTrain.start);
-// console.log(newTrain.frequency);
 
 //Clear text boxes
 $('#train-name-input').val("");
@@ -63,12 +58,6 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   const firstTrainTime = childSnapshot.val().start
   const frequency = childSnapshot.val().frequency
 
-  //employee info
-  // console.log(trainName);
-  // console.log(destination);
-  // console.log(firstTrainTime);
-  // console.log(frequency);
-
  //convert first time back a year so it is always before current time
  const firstTimeConverted = moment(firstTrainTime, "HH:mm").subtract(1, "years");
  
@@ -86,7 +75,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   
 
   //Calculate Minutes Away
-  const minutesAway = frequency - timeRemaining;
+  const minutesAway = frequency - timeRemaining; 
   // console.log(`train is ${minutesAway} minutes away`)
 
   //Next train arrival

@@ -4,25 +4,39 @@
 }
 body {
   font-size: 100%;
-  background-color: #04AEE2;
+  background-color: #04aee2;
+  height: 100%;
 }
 .jumbotron {
-  background-color: #D9DEE1;
+  background-color: #d9dee1;
   color: #333;
 }
 .jumbotron h1 {
   font-family: 'toy-train';
 }
 .panel-primary > .panel-heading {
-  background-color: #EB4039;
-  border: solid 1px #FDD200;
+  background-color: #eb4039;
+  border: solid 1px #fdd200;
 }
 #clear-train,
 #add-train-btn {
-  background-color: #EB4039;
-  border: solid 1px #FDD200;
+  background-color: #eb4039;
+  border: solid 1px #fdd200;
 }
 .panel,
 .panel-primary {
-  border: solid 1px #FDD200;
+  border: solid 1px #fdd200;
+}
+.footer {
+  color: #fff;
+  background: #eb4039;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.footer-text {
+  font-size: 150%;
+  margin-bottom: 0px;
+}
+.footer-text a {
+  color: #333;
 }
