@@ -3,7 +3,7 @@
   src: url('fonts/toy-train.ttf') format('truetype');
 }
 body {
-  font-size: 100%;
+  font-size: 125%;
   background-color: #04aee2;
   height: 100%;
 }
@@ -34,7 +34,7 @@ body {
   padding-bottom: 20px;
 }
 .footer-text {
-  font-size: 150%;
+  font-size: 125%;
   margin-bottom: 0px;
 }
 .footer-text a {
